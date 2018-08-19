@@ -2,7 +2,6 @@ package pl.coderslab.crm_workshop.Entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.URL;
-import pl.coderslab.crm_workshop.Abstract.User;
 
 import javax.persistence.*;
 import javax.xml.crypto.Data;
@@ -28,9 +27,8 @@ public class Project {
 
     private String identifier;
 
-    private List<Worker> Projectworkers;
+    private List<User> ProjectUsers;
 
-    private Menager projectMenager;
 
     boolean activity;
 
@@ -85,21 +83,14 @@ public class Project {
         this.identifier = identifier;
     }
 
-    public List<Worker> getProjectworkers() {
-        return Projectworkers;
+    public List<User> getProjectUsers() {
+        return ProjectUsers;
     }
 
-    public void setProjectworkers(List<Worker> projectworkers) {
-        Projectworkers = projectworkers;
+    public void setProjectworkers(List<User> projectworkers) {
+        ProjectUsers = projectworkers;
     }
 
-    public Menager getProjectMenager() {
-        return projectMenager;
-    }
-
-    public void setProjectMenager(Menager projectMenager) {
-        this.projectMenager = projectMenager;
-    }
 
     public boolean isActivity() {
         return activity;
