@@ -20,17 +20,19 @@ public class Task {
 
     private String subject;
 
-//    private Project project;
+    @ManyToOne
+    private Project project;
 
     private String description;
 
-//    private TaskStatus status;
+    @ManyToOne
+    private TaskStatus status;
 
     private TaskPriority priority;
 
-//    private User menager;
-//
-//    private List<User> workers;
+    @ManyToOne
+    private User worker;
+
 
     public Task() {
     }
@@ -59,13 +61,13 @@ public class Task {
         this.subject = subject;
     }
 
-//    public Project getProject() {
-//        return project;
-//    }
-//
-//    public void setProject(Project project) {
-//        this.project = project;
-//    }
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
 
     public String getDescription() {
         return description;
@@ -75,13 +77,13 @@ public class Task {
         this.description = description;
     }
 
-//    public TaskStatus getStatus() {
-//        return status;
-//    }
-//
-//    public void setStatus(TaskStatus status) {
-//        this.status = status;
-//    }
+    public TaskStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(TaskStatus status) {
+        this.status = status;
+    }
 
     public TaskPriority getPriority() {
         return priority;
@@ -91,19 +93,11 @@ public class Task {
         this.priority = priority;
     }
 
-//    public User getMenager() {
-//        return menager;
-//    }
-//
-//    public void setMenager(User menager) {
-//        this.menager = menager;
-//    }
-//
-//    public List<User> getWorkers() {
-//        return workers;
-//    }
-//
-//    public void setWorkers(List<User> workers) {
-//        this.workers = workers;
-//    }
+    public User getWorker() {
+        return worker;
+    }
+
+    public void setWorker(User worker) {
+        this.worker = worker;
+    }
 }

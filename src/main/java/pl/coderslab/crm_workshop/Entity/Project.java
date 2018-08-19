@@ -35,6 +35,8 @@ public class Project {
             inverseJoinColumns = {@JoinColumn(name = "user_id")})
     private List<User> projectWorkers;
 
+    @OneToMany(mappedBy = "project")
+    private List<Task> tasks;
 
     boolean activity;
 
@@ -111,5 +113,13 @@ public class Project {
 
     public void setActivity(boolean activity) {
         this.activity = activity;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }

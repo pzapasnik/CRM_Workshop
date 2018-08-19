@@ -33,6 +33,9 @@ public class User {
     @ManyToMany(mappedBy = "projectWorkers")
     private List<Project> workedOnProjects;
 
+    @OneToMany(mappedBy = "worker")
+    private List<Task> tasks;
+
 
     public User() {
     }
@@ -107,5 +110,13 @@ public class User {
 
     public void setWorkedOnProjects(List<Project> workedOnProjects) {
         this.workedOnProjects = workedOnProjects;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }

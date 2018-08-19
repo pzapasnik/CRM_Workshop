@@ -1,6 +1,7 @@
 package pl.coderslab.crm_workshop.Entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "status")
@@ -14,7 +15,9 @@ public class TaskStatus {
 
     private boolean activity;
 
-    private Integer sort;
+    @OneToMany(mappedBy = "status")
+    private List<Task> tasks;
+
 
     public TaskStatus() {
     }
@@ -43,11 +46,11 @@ public class TaskStatus {
         this.activity = activity;
     }
 
-    public Integer getSort() {
-        return sort;
+    public List<Task> getTasks() {
+        return tasks;
     }
 
-    public void setSort(Integer sort) {
-        this.sort = sort;
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }
