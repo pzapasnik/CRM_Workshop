@@ -1,6 +1,7 @@
 package pl.coderslab.crm_workshop.Entity;
 
 import org.hibernate.validator.constraints.Email;
+import pl.coderslab.crm_workshop.Enum.UserType;
 
 import javax.persistence.*;
 import java.util.List;
@@ -21,14 +22,17 @@ public class User {
 
     private String passworld;
 
+    @Email
+    private String email;
+
+    private UserType userType;
+
     @OneToMany(mappedBy = "menager")
     private List<Project> menagedProjects;
 
     @ManyToMany(mappedBy = "projectWorkers")
     private List<Project> workedOnProjects;
 
-    @Email
-    private String email;
 
     public User() {
     }
@@ -79,5 +83,29 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
+
+    public List<Project> getMenagedProjects() {
+        return menagedProjects;
+    }
+
+    public void setMenagedProjects(List<Project> menagedProjects) {
+        this.menagedProjects = menagedProjects;
+    }
+
+    public List<Project> getWorkedOnProjects() {
+        return workedOnProjects;
+    }
+
+    public void setWorkedOnProjects(List<Project> workedOnProjects) {
+        this.workedOnProjects = workedOnProjects;
     }
 }
