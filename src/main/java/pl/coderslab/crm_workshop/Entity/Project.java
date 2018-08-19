@@ -4,7 +4,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,7 +16,7 @@ public class Project {
     private Long id;
 
     @CreationTimestamp
-    private Data created;
+    private Date created;
 
     private String name;
 
@@ -27,7 +27,13 @@ public class Project {
 
     private String identifier;
 
-    private List<User> ProjectUsers;
+    @ManyToOne
+    private User menager;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinTable(name = "project_workers", joinColumns = {@JoinColumn(name = "project_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")})
+    private List<User> projectWorkers;
 
 
     boolean activity;
@@ -43,11 +49,11 @@ public class Project {
         this.id = id;
     }
 
-    public Data getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(Data created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
 
@@ -83,14 +89,21 @@ public class Project {
         this.identifier = identifier;
     }
 
-    public List<User> getProjectUsers() {
-        return ProjectUsers;
+    public User getMenager() {
+        return menager;
     }
 
-    public void setProjectworkers(List<User> projectworkers) {
-        ProjectUsers = projectworkers;
+    public void setMenager(User menager) {
+        this.menager = menager;
     }
 
+    public List<User> getProjectWorkers() {
+        return projectWorkers;
+    }
+
+    public void setProjectWorkers(List<User> projectWorkers) {
+        projectWorkers = projectWorkers;
+    }
 
     public boolean isActivity() {
         return activity;

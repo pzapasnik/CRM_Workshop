@@ -4,7 +4,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import pl.coderslab.crm_workshop.Enum.TaskPriority;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,21 +16,21 @@ public class Task {
     private Long id;
 
     @CreationTimestamp
-    private Data created;
+    private Date created;
 
     private String subject;
 
-    private Project project;
+//    private Project project;
 
     private String description;
 
-    private TaskStatus status;
+//    private TaskStatus status;
 
     private TaskPriority priority;
 
-    private User menager;
-
-    private List<User> workers;
+//    private User menager;
+//
+//    private List<User> workers;
 
     public Task() {
     }
@@ -43,11 +43,11 @@ public class Task {
         this.id = id;
     }
 
-    public Data getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(Data created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
 
@@ -59,13 +59,13 @@ public class Task {
         this.subject = subject;
     }
 
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
+//    public Project getProject() {
+//        return project;
+//    }
+//
+//    public void setProject(Project project) {
+//        this.project = project;
+//    }
 
     public String getDescription() {
         return description;
@@ -75,13 +75,13 @@ public class Task {
         this.description = description;
     }
 
-    public TaskStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(TaskStatus status) {
-        this.status = status;
-    }
+//    public TaskStatus getStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(TaskStatus status) {
+//        this.status = status;
+//    }
 
     public TaskPriority getPriority() {
         return priority;
@@ -91,19 +91,19 @@ public class Task {
         this.priority = priority;
     }
 
-    public User getMenager() {
-        return menager;
-    }
-
-    public void setMenager(User menager) {
-        this.menager = menager;
-    }
-
-    public List<User> getWorkers() {
-        return workers;
-    }
-
-    public void setWorkers(List<User> workers) {
-        this.workers = workers;
-    }
+//    public User getMenager() {
+//        return menager;
+//    }
+//
+//    public void setMenager(User menager) {
+//        this.menager = menager;
+//    }
+//
+//    public List<User> getWorkers() {
+//        return workers;
+//    }
+//
+//    public void setWorkers(List<User> workers) {
+//        this.workers = workers;
+//    }
 }

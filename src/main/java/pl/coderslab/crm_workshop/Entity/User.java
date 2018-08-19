@@ -3,6 +3,7 @@ package pl.coderslab.crm_workshop.Entity;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -19,6 +20,12 @@ public class User {
     private String lastName;
 
     private String passworld;
+
+    @OneToMany(mappedBy = "menager")
+    private List<Project> menagedProjects;
+
+    @ManyToMany(mappedBy = "projectWorkers")
+    private List<Project> workedOnProjects;
 
     @Email
     private String email;
